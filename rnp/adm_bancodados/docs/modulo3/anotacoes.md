@@ -53,3 +53,28 @@ __o PGDATA sempre será a pasta principal do PostgreSQL__
     ├── postmaster.opts
     └── serverlog
 ~~~
+
+## Arquivos de Configuração
+
+1. __postgresql.conf__: Arquvivo principal de configuração do banco
+2. __postgresql.auto.conf__: parâmetros alterados pelo comando `ALTER SYSTEM`, serão incluídos neste arquivo.
+3. __pg_hba.conf__: controle de autenticação
+4. __pg_ident.conf__: mapear usuários do SO para usuários do banco de dados em determinados métodos de autenticação
+5. __postmaster.pid__: arquivo contendo o PID do processo principal em execução. Impede a execução duplicada do PostgreSQL
+6. __postmaster.opts__: contém a linha de comando com todos os parâmetros usado para iniciar o serviço do PostgreSQL. Usado pelo pg_ctl para fazer o restart
+7. __PG_VERSION__: contém a versão do PostgreSQL
+
+## DIRETÓRIOS
+
+~~~text
+base, global, pg_wal, log, pg_tblspc, diretórios de controle de transação, diretórios de controle de replicação e outras funções
+~~~
+
+### Base
+
+
+
+
+
+
+
