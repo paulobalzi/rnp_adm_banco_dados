@@ -1,0 +1,81 @@
+sudo apt install make
+sudo apt install gcc
+sudo apt install tar
+sudo apt install libreadline6-dev
+sudo apt install zlib1g-dev
+sudo apt install python-dev 
+
+wget https://ftp.postgresql.org/pub/source/v13.1/postgresql-13.1.tar.gz
+
+tar -xvf postgresql-13.1.tar.gz
+
+./configure --prefix=/usr/local/pgsql \
+    --with-system-tzdata=/usr/share/zoneinfo \
+    --with-python
+
+make
+
+make check
+
+sudo make install
+
+INSTALANDO PLUGINS
+
+cd /home/vagrant/postgresql-13.1/contrib/pg_buffercache
+make
+sudo make install
+
+make -C ../../src/backend generated-headers
+make[1]: Entering directory '/home/vagrant/postgresql-13.1/src/backend'
+make -C catalog distprep generated-header-symlinks
+make[2]: Entering directory '/home/vagrant/postgresql-13.1/src/backend/catalog'
+make[2]: Nothing to be done for 'distprep'.
+make[2]: Nothing to be done for 'generated-header-symlinks'.
+make[2]: Leaving directory '/home/vagrant/postgresql-13.1/src/backend/catalog'
+make -C utils distprep generated-header-symlinks
+make[2]: Entering directory '/home/vagrant/postgresql-13.1/src/backend/utils'
+make[2]: Nothing to be done for 'distprep'.
+make[2]: Nothing to be done for 'generated-header-symlinks'.
+make[2]: Leaving directory '/home/vagrant/postgresql-13.1/src/backend/utils'
+make[1]: Leaving directory '/home/vagrant/postgresql-13.1/src/backend'
+/usr/bin/mkdir -p '/usr/local/pgsql/lib'
+/usr/bin/mkdir -p '/usr/local/pgsql/share/extension'
+/usr/bin/mkdir -p '/usr/local/pgsql/share/extension'
+/usr/bin/install -c -m 755  pg_buffercache.so '/usr/local/pgsql/lib/pg_buffercache.so'
+/usr/bin/install -c -m 644 ./pg_buffercache.control '/usr/local/pgsql/share/extension/'
+/usr/bin/install -c -m 644 ./pg_buffercache--1.2.sql ./pg_buffercache--1.2--1.3.sql ./pg_buffercache--1.1--1.2.sql ./pg_buffercache--1.0--1.1.sql  '/usr/local/pgsql/share/extension/'
+
+
+/usr/local/pgsql/bin/
+├── clusterdb
+├── createdb
+├── createuser
+├── dropdb
+├── dropuser
+├── ecpg
+├── initdb
+├── pg_archivecleanup
+├── pg_basebackup
+├── pgbench
+├── pg_checksums
+├── pg_config
+├── pg_controldata
+├── pg_ctl
+├── pg_dump
+├── pg_dumpall
+├── pg_isready
+├── pg_receivewal
+├── pg_recvlogical
+├── pg_resetwal
+├── pg_restore
+├── pg_rewind
+├── pg_test_fsync
+├── pg_test_timing
+├── pg_upgrade
+├── pg_verifybackup
+├── pg_waldump
+├── postgres
+├── postmaster -> postgres
+├── psql
+├── reindexdb
+└── vacuumdb
