@@ -67,11 +67,35 @@ __o PGDATA sempre será a pasta principal do PostgreSQL__
 ## DIRETÓRIOS
 
 ~~~text
-base, global, pg_wal, log, pg_tblspc, diretórios de controle de transação, diretórios de controle de replicação e outras funções
+base, global, pg_wal, log, pg_tblspc, diretórios de controle de transação, 
+diretórios de controle de replicação e outras funções
 ~~~
 
 ### Base
 
+Diretório onde estão localizados os __arquivos de dados__. Dentro existe um subdiretório para cada base.
+
+~~~text
+base/
+├── 1
+├── 12661
+└── 12662
+~~~
+
+Os números indicam o _OID_ da base, que pode ser obtido consultando a tabela do catálago _pg\_database_
+
+~~~sql
+postgres=# select oid, datname from pg_database;
+
+  oid  |  datname  
+-------+-----------
+ 12662 | postgres
+     1 | template1
+ 12661 | template0
+(3 rows)
+~~~
+
+PAREI NA 46
 
 
 
