@@ -98,7 +98,11 @@ psql -p 6543 -d curso
 
 __Importante__
 ~~~text
-como nada é perfeito, o pgbouncer possui um contratempo. Como ele precisa autenticar os usuários, é preciso indicar um arquivo com usuários e senhas válidos. Até a versão 8.3, o próprio PostgreSQL mantinha tal arquivo, que era utilizado pelo pgbouncer. A partir do PostgreSQL 9.0, esse arquivo foi descontinuado e atualmente é necessário gerá-lo “manualmente”. Não é complicado gerar o conteúdo para o arquivo através de comandos SQL lendo o catálogo, inclusive protegendo as respectivas senhas de forma a que não fiquem expostas (são encriptadas).
+como nada é perfeito, o pgbouncer possui um contratempo. Como ele precisa autenticar os usuários, é preciso indicar um arquivo
+com usuários e senhas válidos. Até a versão 8.3, o próprio PostgreSQL mantinha tal arquivo, que era utilizado pelo pgbouncer. A
+partir do PostgreSQL 9.0, esse arquivo foi descontinuado e atualmente é necessário gerá-lo “manualmente”. Não é complicado gerar
+o conteúdo para o arquivo através de comandos SQL lendo o catálogo, inclusive protegendo as respectivas senhas de forma a que não 
+fiquem expostas (são encriptadas).
 ~~~
 
 ## Processos com queries lentas ou muito executadas
